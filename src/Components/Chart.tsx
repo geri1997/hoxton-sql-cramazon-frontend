@@ -21,6 +21,8 @@ ChartJS.register(
 
 export const options = {
     responsive: true,
+    // maintainAspectRatio: false,
+    // aspectRatio:1,
     plugins: {
         legend: {
             position: 'bottom' as const,
@@ -91,5 +93,11 @@ export function Chart() {
         ],
     };
 
-    return <Bar style={{ width: '500px' }} options={options} data={data} />;
+    return (
+        //https://www.chartjs.org/docs/latest/configuration/responsive.html#important-note
+        //per me change chart size edhe me majt responsiveness e kshu ven container rreth saj qe mban vtm chartin edhe ven size te containeri
+        <div style={{ width: '600px' }}>
+            <Bar options={options} data={data} />
+        </div>
+    );
 }

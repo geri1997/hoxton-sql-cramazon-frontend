@@ -125,7 +125,7 @@ function App() {
                         })}
                 </ul>
             </section>
-            <Chart />
+            <Chart  />
         </>
     );
 }
