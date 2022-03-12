@@ -29,6 +29,7 @@ export const options = {
             display: true,
             text: 'User Posts and Comments info',
         },
+        tooltip: { enabled: false },//https://www.chartjs.org/docs/latest/configuration/tooltip.html
     },
 };
 
@@ -50,7 +51,7 @@ export function Chart() {
         return posts.find((post: any) => post.user.name === name).user;
     });
     let data;
-    
+
     data = {
         labels,
         datasets: [
@@ -82,12 +83,13 @@ export function Chart() {
                         (post: any) => post.userId === foundUser?.id
                     );
                     // console.log(userPosts.map((post: any) => post.comments).flat().length)
-                    return userPosts.map((post: any) => post.comments).flat().length;
+                    return userPosts.map((post: any) => post.comments).flat()
+                        .length;
                 }),
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
             },
         ],
     };
 
-    return <Bar style={{width:'500px'}} options={options} data={data} />;
+    return <Bar style={{ width: '500px' }} options={options} data={data} />;
 }
