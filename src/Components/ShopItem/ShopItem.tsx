@@ -23,6 +23,7 @@ const ShopItem = ({
                         <option value='5'>5</option>
                         <option value='6'>6</option>
                         <option value='7'>7</option>
+                        <option value='7'>7</option>
                     </select>
                     <button
                         onClick={(e) => {

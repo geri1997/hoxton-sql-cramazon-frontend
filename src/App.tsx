@@ -9,6 +9,7 @@ import './App.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import { Item, User } from './types';
 import ShopItem from './Components/ShopItem/ShopItem';
+import { Chart } from './Components/Chart';
 
 function App() {
     const [users, setUsers] = useState<User[] | []>([]);
@@ -79,8 +80,9 @@ function App() {
                                             }),
                                         }
                                     );
-                                    const parsedUser = await stringifiedUser.json()
-                                    setSelectedUser(parsedUser)
+                                    const parsedUser =
+                                        await stringifiedUser.json();
+                                    setSelectedUser(parsedUser);
                                 }}
                                 name='quantity'
                                 id={`cart${order.Item?.title}Quantity`}
@@ -123,6 +125,7 @@ function App() {
                         })}
                 </ul>
             </section>
+            <Chart />
         </>
     );
 }
