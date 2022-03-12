@@ -27,7 +27,7 @@ export const options = {
         },
         title: {
             display: true,
-            text: 'Chart.js Bar Chart',
+            text: 'User Posts and Comments info',
         },
     },
 };
@@ -55,14 +55,14 @@ export function Chart() {
         labels,
         datasets: [
             {
-                label: 'Dataset 1',
+                label: 'Posts',
                 data: labels.map((name) => {
                     const foundUser = users.find((user) => user.name === name);
-                    console.log(
-                        posts.filter(
-                            (post: any) => post.userId === foundUser?.id
-                        ).length
-                    );
+                    // console.log(
+                    //     posts.filter(
+                    //         (post: any) => post.userId === foundUser?.id
+                    //     ).length
+                    // );
                     return posts.filter(
                         (post: any) => post.userId === foundUser?.id
                     ).length;
@@ -70,7 +70,7 @@ export function Chart() {
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             },
             {
-                label: 'Dataset 2',
+                label: 'Comments on posts',
                 data: labels.map((name) => {
                     const foundUser = users.find((user) => user.name === name);
                     // console.log(
@@ -81,12 +81,13 @@ export function Chart() {
                     const userPosts = posts.filter(
                         (post: any) => post.userId === foundUser?.id
                     );
-                    return userPosts.map((post: any) => post.comments).length;
+                    // console.log(userPosts.map((post: any) => post.comments).flat().length)
+                    return userPosts.map((post: any) => post.comments).flat().length;
                 }),
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
             },
         ],
     };
 
-    return <Bar options={options} data={data} />;
+    return <Bar style={{width:'500px'}} options={options} data={data} />;
 }
