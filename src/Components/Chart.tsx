@@ -29,7 +29,7 @@ export const options = {
             display: true,
             text: 'User Posts and Comments info',
         },
-        tooltip: { enabled: false },//https://www.chartjs.org/docs/latest/configuration/tooltip.html
+        tooltip: { enabled: true, boxWidth: 150 }, //https://www.chartjs.org/docs/latest/configuration/tooltip.html
     },
 };
 
